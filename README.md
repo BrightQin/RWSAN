@@ -10,7 +10,7 @@ This repo is the official implementation of "**Deep Residual Weight-Sharing Atte
 2. Install [Cuda](https://developer.nvidia.com/cuda-toolkit) >= 10.1 and [cuDNN](https://developer.nvidia.com/cudnn) (Project works with cudatookit 10.1, 10.2, and 11.1)
 3. Install [PyTorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
 
-## Setup
+## Dataset
 Coming soon...
 
 ## Training 
