@@ -14,7 +14,7 @@ If this repository is helpful for your research, we'd really appreciate it if yo
 3. Install [PyTorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
 
 ## Dataset
-Please download the processed VQA-v2 and VG dataset in [OneDrive]() or [BaiduYun](https://pan.baidu.com/s/19PdZwXWx2vhByfKxZt9oCw?pwd=rwsa) (code: rwsa) and place them as follows:
+Please download the processed VQA-v2 and VG dataset in [OneDrive]() or [BaiduYun](https://pan.baidu.com/s/19PdZwXWx2vhByfKxZt9oCw?pwd=rwsa) and place them as follows:
 
 ```angular2html
 |-- datasets
@@ -61,11 +61,26 @@ Finally, the datasets folders shall have the following structure:
 
 
 ## Training 
-Coming soon...
+Run the following command to train the default RWSAN.
 
 ## Testing
-Coming soon...
+Offline evaluation support evaluation on the the VQA-v2 *val* split.
+
+```bash
+$ python3 run.py --RUN='val' --CKPT_V=str --CKPT_E=int
+```
+
+You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online.
+
+```bash
+$ python3 run.py --RUN='test' --CKPT_V=str --CKPT_E=int
+```
+
+Result files are stored in ```results/result_test/result_run_<'PATH+random number' or 'VERSION+EPOCH'>.json```
+
+Upload the result file to [Eval AI]() to see the scores on *test-dev* and *test-std* splits.
 
 ## Thanks
 [MCAN](https://github.com/MILVLG/mcan-vqa)
+
 [bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention)
