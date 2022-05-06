@@ -14,7 +14,7 @@ If this repository is helpful for your research, we'd really appreciate it if yo
 3. Install [PyTorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
 
 ## Dataset
-The image features are extracted using the [bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention) strategy. We release the extracted features in [OneDrive](https://zjueducn-my.sharepoint.com/:f:/g/personal/3170105600_zju_edu_cn/ErSY69_1A_dBgvRNQAIgf_UB4GJ9ajaPBr42jNtDTGfeqQ?e=dLhEZ1) or [BaiduYun](https://pan.baidu.com/s/1R9hMzK3KRplhRFj9_vKflQ?pwd=RWSA) (code: rwsa). Please place the dataset as follows:
+We process the dataset in [MCAN] (https://github.com/MILVLG/mcan-vqa) manners. The image features are extracted using the [bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention) strategy. Besides, we use the VQA samples from the [visual genome dataset](http://visualgenome.org/) to expand the training samples. We release the processed dataset in [OneDrive](https://zjueducn-my.sharepoint.com/:f:/g/personal/3170105600_zju_edu_cn/ErSY69_1A_dBgvRNQAIgf_UB4GJ9ajaPBr42jNtDTGfeqQ?e=dLhEZ1) and [BaiduYun](https://pan.baidu.com/s/1R9hMzK3KRplhRFj9_vKflQ?pwd=RWSA) (code: rwsa). Please place the dataset as follows:
 
 ```angular2html
 |-- datasets
@@ -22,12 +22,6 @@ The image features are extracted using the [bottom-up-attention](https://github.
 	|  |-- train2014.tar.gz
 	|  |-- val2014.tar.gz
 	|  |-- test2015.tar.gz
-```
-
-Besides, we use the VQA samples from the [visual genome dataset](http://visualgenome.org/) to expand the training samples. We provide processed vg questions and annotations files. Please download them from [OneDrive]() or [BaiduYun](), and place them as follow:
-
-```angular2html
-|-- datasets
 	|-- vqa
 	|  |-- VG_questions.json
 	|  |-- VG_annotations.json
