@@ -14,7 +14,7 @@ If this repository is helpful for your research, we'd really appreciate it if yo
 3. Install [PyTorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
 
 ## Dataset
-We process the dataset in [MCAN](https://github.com/MILVLG/mcan-vqa) manners. The image features are extracted using the [bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention) strategy. Besides, we use the VQA samples from the [visual genome dataset](http://visualgenome.org/) to expand the training samples. We release the processed dataset in [OneDrive](https://zjueducn-my.sharepoint.com/:f:/g/personal/3170105600_zju_edu_cn/ErSY69_1A_dBgvRNQAIgf_UB4GJ9ajaPBr42jNtDTGfeqQ?e=dLhEZ1) and [BaiduYun](https://pan.baidu.com/s/1R9hMzK3KRplhRFj9_vKflQ?pwd=RWSA) (code: rwsa). Please place the dataset as follows:
+Please download the processed VQA-v2 and VG dataset in [OneDrive](https://zjueducn-my.sharepoint.com/:f:/g/personal/3170105600_zju_edu_cn/ErSY69_1A_dBgvRNQAIgf_UB4GJ9ajaPBr42jNtDTGfeqQ?e=dLhEZ1) or [BaiduYun](https://pan.baidu.com/s/1R9hMzK3KRplhRFj9_vKflQ?pwd=RWSA) (code: rwsa) and place them as follows:
 
 ```angular2html
 |-- datasets
@@ -65,3 +65,7 @@ Coming soon...
 
 ## Testing
 Coming soon...
+
+## Thanks
+[MCAN](https://github.com/MILVLG/mcan-vqa)
+[bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention)
