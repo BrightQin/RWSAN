@@ -1,6 +1,4 @@
 pytorch
 numpy
 pyyaml
-
-
-
+pytorch-nlp
