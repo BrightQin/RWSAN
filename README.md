@@ -26,7 +26,7 @@ If this repository is helpful for your research, we'd really appreciate it if yo
 3. Install [PyTorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
 
 ## Dataset
-Please download the processed VQA-v2 and VG dataset in [OneDrive]() or [BaiduYun](https://pan.baidu.com/s/19PdZwXWx2vhByfKxZt9oCw?pwd=rwsa) and place them as follows:
+Please download the processed VQA-v2 and VG dataset in [OneDrive]() or [BaiduYun](https://pan.baidu.com/s/19PdZwXWx2vhByfKxZt9oCw?pwd=rwsa) and place them in the root folder as follows:
 
 ```angular2html
 |-- datasets
