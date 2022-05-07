@@ -1,5 +1,5 @@
 from cfgs.base_cfgs import Cfgs
-from train.exec import Execution
+from train.execution import Execution
 import argparse
 
 def parse_args():
