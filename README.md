@@ -72,20 +72,33 @@ Finally, the datasets folders shall have the following structure:
 ```
 
 
-## Training 
-Run the following command to train the default RWSAN.
+## Training and Evaluate on the *Val* Split
+Run the following command to train the RWSAN on *train* split of VQA-v2 dataset and evaluate on the *val* split.
 
-## Testing
+```bash
+python3 run.py --RUN='train' --VERSION='RWSAN' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4
+```
+### Command
+1. ```--VERSION='RWSAN'``` the name of this experiment.
+2. ```--GPU=str``` use the specific GPU device.
+3. ```--SPLIT={'train', 'train+val', 'train+val+vg'}``` the training set you want to use.
+4. ```--ACCU=1``` gradient accumulation for low memory GPU. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default batch size is 64, so ```--ACCU``` can be 1, 2, 4, 8 ...).
+
+```
+ckpts/ckpt_<VERSION>/epoch<EPOCH_NUMBER>.pkl
+```
+
+## Training and Evaluate on the *Test* Split
 Offline evaluation support evaluation on the the VQA-v2 *val* split.
 
 ```bash
-$ python3 run.py --RUN='val' --CKPT_V=str --CKPT_E=int
+$ python3 run.py --RUN='val' --CKPT_V='ckpt_RWSAN' --CKPT_E=16
 ```
 
 You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online.
 
 ```bash
-$ python3 run.py --RUN='test' --CKPT_V=str --CKPT_E=int
+$ python3 run.py --RUN='test' --CKPT_V='ckpt_RWSAN' --CKPT_E=16
 ```
 
 Result files are stored in ```results/result_test/result_run_<'PATH+random number' or 'VERSION+EPOCH'>.json```
