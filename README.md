@@ -85,7 +85,7 @@ python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --A
 4. ```--ACCU=int``` gradient accumulation when GPU memory is not sufficient. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
 5. ```--NW=int```
 
-The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/'''
+The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/```
 
 #### Reevaluation (Optional)
 
@@ -112,7 +112,7 @@ Run the following command to train the RWSAN on *train*, *train* and 'VG' split 
 python3 run.py -RUN='train+val+vg' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4
 ```
 
-The checkpoints are stored in ```./ckpts/ckpt_RWSAN_test/```, and the log files for average training loss in every epoch are stored in ```./results/log/'''
+The checkpoints are stored in ```./ckpts/ckpt_RWSAN_test/```, and the log files for average training loss in every epoch are stored in ```./results/log/```
 
 
 You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online.
