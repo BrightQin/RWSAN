@@ -87,6 +87,8 @@ python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --A
 
 The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/```
 
+### Resume Training
+
 #### Reevaluation (Optional)
 
 If you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
@@ -106,27 +108,24 @@ python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --AC
 
 ## Training and Evaluate on the *Test* Split
 
-Run the following command to train the RWSAN on *train*, *train* and 'VG' split of VQA-v2 dataset and evaluate on the *Test-dev* or *Test-std* split.
+Run the following command to train the RWSAN on *train*, *val* and *vg* split of VQA-v2 dataset and evaluate on the *Test-dev* or *Test-std* split.
 
 ```bash
-python3 run.py -RUN='train+val+vg' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4
+python3 run.py -RUN='train' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train+val+vg' --ACCU=1 --NW=4
 ```
 
-The checkpoints are stored in ```./ckpts/ckpt_RWSAN_test/```, and the log files for average training loss in every epoch are stored in ```./results/log/```
-
-
-You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online.
+After that, run the following code to generate the predictions on the *test* split.
 
 ```bash
-$ python3 run.py --RUN='test' --CKPT_V='ckpt_RWSAN' --CKPT_E=16
+$ python3 run.py --RUN='test' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_test' --CKPT_E=16
 ```
 
-Result files are stored in ```results/result_test/result_run_<'PATH+random number' or 'VERSION+EPOCH'>.json```
+Predictions are stored in ```results/result_test/```
 
-Upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to see the scores on *test-dev* and *test-std* splits.
+You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online. Upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to see the scores on *test-dev* and *test-std* splits.
 
 
-## Thanks
+## Acknowledgement
 [MCAN](https://github.com/MILVLG/mcan-vqa)
 
 [bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention)
