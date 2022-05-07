@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# Download vqa v2 dataset
+# Download vqa-v2 QA pairs
 VQA_DIR=./datasets/vqa
-mkdir -p $VQA_DIR
 wget https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Questions_Train_mscoco.zip -O $VQA_DIR/v2_Questions_Train_mscoco.zip
 wget https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Questions_Val_mscoco.zip -O $VQA_DIR/v2_Questions_Val_mscoco.zip
 wget https://s3.amazonaws.com/cvmlp/vqa/mscoco/vqa/v2_Questions_Test_mscoco.zip -O $VQA_DIR/v2_Questions_Test_mscoco.zip
