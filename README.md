@@ -4,6 +4,18 @@ This repo is the official implementation of "**Deep Residual Weight-Sharing Atte
 ## Citation
 If this repository is helpful for your research, we'd really appreciate it if you could cite the following paper:
 
+```
+@ARTICLE{9770348,
+  author={Qin, Bosheng and Hu, Haoji and Zhuang, Yueting},
+  journal={IEEE Transactions on Multimedia}, 
+  title={Deep Residual Weight-Sharing Attention Network with Low-Rank Attention for Visual Question Answering}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TMM.2022.3173131}}
+  ```
+
 ## Hardware Requirements
 1. At least one 1 Nvidia GPU (>= 8GB), 
 2. 50GB free disk space.
