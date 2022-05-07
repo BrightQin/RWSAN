@@ -90,7 +90,7 @@ $ python3 run.py --RUN='test' --CKPT_V=str --CKPT_E=int
 
 Result files are stored in ```results/result_test/result_run_<'PATH+random number' or 'VERSION+EPOCH'>.json```
 
-Upload the result file to [Eval AI]() to see the scores on *test-dev* and *test-std* splits.
+Upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to see the scores on *test-dev* and *test-std* splits.
 
 ## Thanks
 [MCAN](https://github.com/MILVLG/mcan-vqa)
