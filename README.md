@@ -83,7 +83,7 @@ python3 run.py --RUN='train' --VERSION='RWSAN' --GPU='0' --SPLIT='train' --ACCU=
 1. ```--VERSION='RWSAN'``` the name of this experiment.
 2. ```--GPU=str``` use the specific GPU device.
 3. ```--SPLIT={'train', 'train+val', 'train+val+vg'}``` the training set you want to use.
-4. ```--ACCU=1``` gradient accumulation for low memory GPU. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default batch size is 64, so ```--ACCU``` can be 1, 2, 4, 8 ...).
+4. ```--ACCU=1``` gradient accumulation for low memory GPU. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
 
 The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/'''
 
