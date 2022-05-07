@@ -71,28 +71,49 @@ Finally, the datasets folders shall have the following structure:
 
 ```
 
-
 ## Training and Evaluate on the *Val* Split
 Run the following command to train the RWSAN on *train* split of VQA-v2 dataset and evaluate on the *val* split.
 
 ```bash
-python3 run.py --RUN='train' --VERSION='RWSAN' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4
+python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4
 ```
 
 ### Command
-1. ```--VERSION='RWSAN'``` the name of this experiment.
+1. ```--VERSION=str``` the name of this experiment.
 2. ```--GPU=str``` use the specific GPU device.
 3. ```--SPLIT={'train', 'train+val', 'train+val+vg'}``` the training set you want to use.
-4. ```--ACCU=1``` gradient accumulation for low memory GPU. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
+4. ```--ACCU=int``` gradient accumulation when GPU memory is not sufficient. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
+5. ```--NW=int```
 
 The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/'''
 
-## Training and Evaluate on the *Test* Split
-Offline evaluation support evaluation on the the VQA-v2 *val* split.
+#### Reevaluation (Optional)
+
+If you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
 
 ```bash
-$ python3 run.py --RUN='val' --CKPT_V='ckpt_RWSAN' --CKPT_E=16
+python3 run.py ---RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
 ```
+
+where ```--VERSION=str --CKPT_V=str``` is the name of the model, and ```--CKPT_E=int``` is the number of epoch you want to evaluate.
+
+For example, if you want to evaluate the performance ```RWSAN_val``` for epoch 16, please run the following command.
+
+```bash
+python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=16
+```
+
+
+## Training and Evaluate on the *Test* Split
+
+Run the following command to train the RWSAN on *train*, *train* and 'VG' split of VQA-v2 dataset and evaluate on the *Test-dev* or *Test-std* split.
+
+```bash
+python3 run.py -RUN='train+val+vg' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4
+```
+
+The checkpoints are stored in ```./ckpts/ckpt_RWSAN_test/```, and the log files for average training loss in every epoch are stored in ```./results/log/'''
+
 
 You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online.
 
@@ -103,6 +124,7 @@ $ python3 run.py --RUN='test' --CKPT_V='ckpt_RWSAN' --CKPT_E=16
 Result files are stored in ```results/result_test/result_run_<'PATH+random number' or 'VERSION+EPOCH'>.json```
 
 Upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to see the scores on *test-dev* and *test-std* splits.
+
 
 ## Thanks
 [MCAN](https://github.com/MILVLG/mcan-vqa)
