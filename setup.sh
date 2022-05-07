@@ -26,4 +26,8 @@ echo Unzip test2015.tar.gz ...
 tar -xzvf test2015.tar.gz
 cd ../..
 
-
+# mkdir
+mkdir ./results/cache
+mkdir ./results/log
+mkdir ./results/pred
+mkdir ./results/result_test
