@@ -158,7 +158,7 @@ All training hyper-parameter is stored in the ```./cfgs/base_cfgs.py```.
 
 ### Build Your Own Model
 
-If you want to build your own model, please define the model under ```./model/```. Then import your model to ```./train/execution.py``` and define it as name ```net```. Then you could run your own model.
+If you want to build your own model, please define the model under ```./model/```. Import your model to ```./train/execution.py``` and define it as name ```net```. Then you could run your own model.
 
 #### Note
 1. The input of the network contains two parts, including ```img_feat_iter``` in ```[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE]``` and ```ques_ix_iter``` in ```[BATCH_SIZE, MAX_TOKEN]```. (Default ```BATCH_SIZE=64```, ```IMG_FEAT_PAD_SIZE=100```, ```IMG_FEAT_SIZE=2048```, ```MAX_TOKEN=16```.)
