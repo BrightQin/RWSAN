@@ -1,5 +1,5 @@
 # RWSAN
-This repo is the official implementation of "**Deep Residual Weight-Sharing Attention Network with Low-Rank Attention for Visual Question Answering**" published in the **IEEE Transactions on Multimedia (TMM), 2022**.
+This repo is the official implementation of ["**Deep Residual Weight-Sharing Attention Network with Low-Rank Attention for Visual Question Answering**"](https://ieeexplore.ieee.org/document/9770348) published in the **IEEE Transactions on Multimedia (TMM), 2022**.
 
 ## Citation
 If this repository is helpful to your research, we'd really appreciate it if you could cite the following paper:
