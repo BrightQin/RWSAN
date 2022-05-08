@@ -104,7 +104,7 @@ python3 run.py --RUN='train' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --
 For example, if you want to resume training the model ```RWSAN_val``` from epoch 8, please run the following command.
 
 ```bash
-python3 run.py ---RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=8
+python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=8
 ```
 
 ### Evaluation
@@ -112,7 +112,7 @@ python3 run.py ---RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --
 If the log file is lost and you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of the VQA-v2 dataset, run the following command.
 
 ```bash
-python3 run.py ---RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
+python3 run.py --RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
 ```
 
 #### Command
@@ -123,7 +123,7 @@ python3 run.py ---RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --N
 For example, if you want to evaluate the performance ```RWSAN_val``` for epoch 16, please run the following command.
 
 ```bash
-python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=16
+python3 run.py --RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=16
 ```
 
 
