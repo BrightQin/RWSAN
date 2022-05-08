@@ -110,7 +110,7 @@ python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --AC
 
 ## Training and Evaluate on the *Test* Split
 
-Run the following command to train the RWSAN on *train*, *val* and *vg* split of VQA-v2 dataset and evaluate on the *Test-dev* or *Test-std* split.
+Run the following command to train the RWSAN on *train*, *val* and *vg* splits of VQA-v2 dataset and evaluate on the *Test-dev* or *Test-std* split.
 
 ```bash
 python3 run.py -RUN='train' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train+val+vg' --ACCU=1 --NW=4
