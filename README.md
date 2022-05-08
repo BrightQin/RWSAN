@@ -160,12 +160,8 @@ All training hyper-parameter is stored in the ```./cfgs/base_cfgs.py/```.
 If you want to build your own model, please define the model under ```./model/```. Then import your model to ```./train/execution.py``` and define it as name ```net```. Then you could run your own model.
 
 #### Note
-1. The input of the network contains three parts, including 
-$$
-
-$$
-
-![](http://latex.codecogs.com/gif.latex?img_feat_iter\in[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE])
+1. The input of the network contains two parts, including ```img_feat_iter``` in ```[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE]``` and ```ques_ix_iter``` in ```[BATCH_SIZE, MAX_TOKEN]```. (Default ```BATCH_SIZE=64```, ```IMG_FEAT_PAD_SIZE=100```, ```IMG_FEAT_SIZE=2048```, ```MAX_TOKEN=16```.)
+2. The output of the network is ```ans_iter``` in ```[BATCH_SIZE, answer_size]```. The default ```answer_size=3129```. (The program will calculate the answer_size automatically based on th provided ```./data/answer_dict.json```.)
 
 
 ## Acknowledgement
