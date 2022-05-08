@@ -22,7 +22,7 @@ If this repository is helpful to your research, we'd really appreciate it if you
 
 ## Software Requirements
 1. [python](https://www.python.org/downloads/) >= 3.6 (Project works with Python 3.6~3.9)
-2. [cuda_toolkit](https://developer.nvidia.com/cuda-toolkit) >= 10.1 (Project works with cudatookit 10.1, 10.2, and 11.1)
+2. [cudatoolkit](https://developer.nvidia.com/cuda-toolkit) >= 10.1 (Project works with cudatookit 10.1, 10.2, and 11.1)
 3. [pytorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
 4. [pytorch-nlp](https://pypi.org/project/pytorch-nlp/)
 
