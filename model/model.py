@@ -207,7 +207,6 @@ class SRWSA(nn.Module):
         self.norm2 = LayerNorm(__C.HIDDEN_SIZE)
 
     def forward(self, x, x_mask):
-        # Get hidden vector
         x1 = self.denceenc1(x, x_mask)
         x2 = self.denceenc1(self.norm1(x1 + x), x_mask)
         x3 = self.denceenc1(self.norm2(x2 + x), x_mask)
@@ -219,12 +218,11 @@ class SGRWSA(nn.Module):
         super(SGRWSA, self).__init__()
 
         self.dec1 = SGA(__C, hidesize, hidesizehead, mulhead, ffsize)
-
+        
         self.norm1 = LayerNorm(__C.HIDDEN_SIZE)
         self.norm3 = LayerNorm(__C.HIDDEN_SIZE)
 
     def forward(self, x, y, x_mask, y_mask):
-        # Get hidden vector
         y1 = self.dec1(x, y, x_mask, y_mask)
         y2 = self.dec1(x, self.norm1(y1 + y), x_mask, y_mask)
         y3 = self.dec1(x, y2, x_mask, y_mask)
