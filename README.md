@@ -141,7 +141,7 @@ After that, run the following code to generate the predictions on the *test* spl
 python3 run.py --RUN='test' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_test' --CKPT_E=16
 ```
 
-Predictions are stored in ```./results/result_test/```
+Prediction file is stored in ```./results/result_test/```
 
 You could upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to evaluate the model on *test-dev* and *test-std* splits.
 
