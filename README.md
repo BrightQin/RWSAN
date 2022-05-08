@@ -133,7 +133,7 @@ python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --AC
 Run the following command to train the RWSAN on *train*, *val* and *vg* splits of the VQA-v2 dataset.
 
 ```bash
-python3 run.py -RUN='train' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train+val+vg' --ACCU=1 --NW=4
+python3 run.py --RUN='train' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train+val+vg' --ACCU=1 --NW=4
 ```
 
 After that, run the following code to generate the predictions on the *test* split.
