@@ -165,7 +165,7 @@ $$
 img_feat_iter\in[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE]
 $$
 
-$\alpha$
+![](http://latex.codecogs.com/gif.latex?\\frac{1}{1+sin(x)})
 
 
 ## Acknowledgement
