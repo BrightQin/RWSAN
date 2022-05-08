@@ -85,7 +85,7 @@ python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --A
 4. ```--ACCU=int```: Gradient accumulation when GPU memory is not sufficient. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
 5. ```--NW=int```: Number of processes to read the dataset. The pre-load data is stored in the memory, and a larger number results in more memory cost. During our experiment, 4 is optimal for both training speed and memory cost.
 
-The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performance on *val* split in every epoch are stored in ```./results/log/```.
+The checkpoints are stored in ```./ckpts/ckpt_RWSAN_val/```, and the log files for average training loss and performance on *val* split in every epoch are stored in ```./results/log/```.
 
 ### Resume Training
 
