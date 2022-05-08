@@ -107,15 +107,18 @@ For example, if you want to resume training the model ```RWSAN_val``` from epoch
 python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=8
 ```
 
-#### Reevaluation (Optional)
+### Evaluation
 
-If you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
+If the log file is lost and you want to evaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
 
 ```bash
 python3 run.py ---RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
 ```
 
-where ```--VERSION=str --CKPT_V=str``` is the name of the model, and ```--CKPT_E=int``` is the number of epoch you want to evaluate.
+#### Command
+
+1. ```--VERSION=str --CKPT_V=str```: The name of the model which is going to evaluate.
+2. ```--CKPT_E=int```: The number of epoch you want to evaluate.
 
 For example, if you want to evaluate the performance ```RWSAN_val``` for epoch 16, please run the following command.
 
@@ -126,7 +129,7 @@ python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --AC
 
 ## Training and Evaluate on the *Test* Split
 
-Run the following command to train the RWSAN on *train*, *val* and *vg* splits of VQA-v2 dataset and evaluate on the *Test-dev* or *Test-std* split.
+Run the following command to train the RWSAN on *train*, *val* and *vg* splits of VQA-v2 dataset.
 
 ```bash
 python3 run.py -RUN='train' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train+val+vg' --ACCU=1 --NW=4
@@ -138,10 +141,23 @@ After that, run the following code to generate the predictions on the *test* spl
 python3 run.py --RUN='test' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_test' --CKPT_E=16
 ```
 
-Predictions are stored in ```results/result_test/```
+Predictions are stored in ```./results/result_test/```
 
 You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online. Upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to see the scores on *test-dev* and *test-std* splits.
 
+## Modifications
+
+### Modify the Path of Dataset
+
+If you perfer to place the dataset in another path, you could modify the path of dataset. The relating configurations is stored in the ```./cfgs/path_cfgs.py/```.
+
+### Modify the Hyper-Parameter
+
+All training hyper-parameter is stored in the ```./cfgs/base_cfgs.py/```.
+
+### Build your Own Model
+
+If you want to build your own model, please define the model under ```./model/```. Then import your model to ```./train/execution.py```
 
 ## Acknowledgement
 [MCAN](https://github.com/MILVLG/mcan-vqa)
