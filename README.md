@@ -69,7 +69,6 @@ Finally, the datasets folders shall have the following structure:
 	|  |-- v2_mscoco_val2014_annotations.json
 	|  |-- VG_questions.json
 	|  |-- VG_annotations.json
-
 ```
 
 ## Training and Evaluate on the *Val* Split
