@@ -79,15 +79,17 @@ python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --A
 ```
 
 ### Command
-1. ```--VERSION=str``` the name of this experiment.
-2. ```--GPU=str``` use the specific GPU device.
-3. ```--SPLIT={'train', 'train+val', 'train+val+vg'}``` the training set you want to use.
-4. ```--ACCU=int``` gradient accumulation when GPU memory is not sufficient. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
-5. ```--NW=int```
+1. ```--VERSION=str```: The name of this experiment.
+2. ```--GPU=str```: Use the specific GPU device.
+3. ```--SPLIT={'train', 'train+val', 'train+val+vg'}```: The training set you want to use.
+4. ```--ACCU=int```: Gradient accumulation when GPU memory is not sufficient. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
+5. ```--NW=int```: Number of processes to read the dataset. The pre-read data is stored in the memory, and largeer number result to more memory cost. During our experiment, 4 is optimal for both training speed and memory cost.
 
 The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/```
 
 ### Resume Training
+
+If the training processed is interrupted, run the following command to resume training. 
 
 #### Reevaluation (Optional)
 
