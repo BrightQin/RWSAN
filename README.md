@@ -165,7 +165,7 @@ $$
 
 $$
 
-![](http://latex.codecogs.com/gif.latex?\\img_feat_iter\in[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE])
+![](http://latex.codecogs.com/gif.latex?img_feat_iter\in[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE])
 
 
 ## Acknowledgement
