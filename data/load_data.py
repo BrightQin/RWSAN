@@ -241,15 +241,9 @@ class DataSet(Data.Dataset):
             # Load the run data from list
             ques = self.ques_list[idx]
 
-            # # Process image feature from (.npz) file
-            # img_feat = np.load(self.iid_to_img_feat_path[str(ques['image_id'])])
-            # img_feat_x = img_feat['x'].transpose((1, 0))
             # Process image feature from (.npz) file
-            if self.__C.PRELOAD:
-                img_feat_x = self.iid_to_img_feat[str(ques['image_id'])]
-            else:
-                img_feat = np.load(self.iid_to_img_feat_path[str(ques['image_id'])])
-                img_feat_x = img_feat['x'].transpose((1, 0))
+            img_feat = np.load(self.iid_to_img_feat_path[str(ques['image_id'])])
+            img_feat_x = img_feat['x'].transpose((1, 0))
             img_feat_iter = proc_img_feat(img_feat_x, self.__C.IMG_FEAT_PAD_SIZE)
 
             # Process question
