@@ -17,7 +17,7 @@ If this repository is helpful to your research, we'd really appreciate it if you
   ```
 
 ## Hardware Requirements
-1. 1 Nvidia GPU.
+1. 1 Nvidia GPU (recommand >=6GB memory).
 2. 50GB free disk space.
 
 ## Software Requirements
