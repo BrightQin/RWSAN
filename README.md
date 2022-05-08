@@ -162,10 +162,10 @@ If you want to build your own model, please define the model under ```./model/``
 #### Note
 1. The input of the network contains three parts, including 
 $$
-img_feat_iter\in[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE]
+
 $$
 
-![](http://latex.codecogs.com/gif.latex?\\frac{1}{1+sin(x)})
+![](http://latex.codecogs.com/gif.latex?\\img_feat_iter\in[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE])
 
 
 ## Acknowledgement
