@@ -105,7 +105,7 @@ python3 run.py --RUN='train' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --
 For example, if you want to resume training the model ```RWSAN_val``` from epoch 8, please run the following command.
 
 ```bash
-python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=8
+python3 run.py ---RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=8
 ```
 
 ### Evaluation
