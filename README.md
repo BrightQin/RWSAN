@@ -150,11 +150,11 @@ You could upload the result file to [Eval AI](https://eval.ai/web/challenges/cha
 
 ### Modify the Path of Dataset
 
-If you prefer to place the dataset in another path, you could modify the path of the dataset. The relating configuration file is ```./cfgs/path_cfgs.py/```.
+If you prefer to place the dataset in another path, you could modify the path of the dataset. The relating configuration file is ```./cfgs/path_cfgs.py```.
 
 ### Modify the Hyper-Parameter
 
-All training hyper-parameter is stored in the ```./cfgs/base_cfgs.py/```.
+All training hyper-parameter is stored in the ```./cfgs/base_cfgs.py```.
 
 ### Build Your Own Model
 
