@@ -27,6 +27,7 @@ tar -xzvf test2015.tar.gz
 cd ../..
 
 # mkdir
+mkdir ./results
 mkdir ./results/cache
 mkdir ./results/log
 mkdir ./results/pred
