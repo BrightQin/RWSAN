@@ -194,14 +194,7 @@ class DataSet(Data.Dataset):
         # ------------------------
 
         # {image id} -> {image feature absolutely path}
-        if self.__C.PRELOAD:
-            print('==== Pre-Loading features ...')
-            time_start = time.time()
-            self.iid_to_img_feat = img_feat_load(self.img_feat_path_list)
-            time_end = time.time()
-            print('==== Finished in {}s'.format(int(time_end-time_start)))
-        else:
-            self.iid_to_img_feat_path = img_feat_path_load(self.img_feat_path_list)
+        self.iid_to_img_feat_path = img_feat_path_load(self.img_feat_path_list)
 
         # {question id} -> {question}
         self.qid_to_ques = ques_load(self.ques_list)
