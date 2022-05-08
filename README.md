@@ -2,7 +2,7 @@
 This repo is the official implementation of "**Deep Residual Weight-Sharing Attention Network with Low-Rank Attention for Visual Question Answering**" published in the **IEEE Transactions on Multimedia (TMM), 2022**.
 
 ## Citation
-If this repository is helpful for your research, we'd really appreciate it if you could cite the following paper:
+If this repository is helpful to your research, we'd really appreciate it if you could cite the following paper:
 
 ```
 @ARTICLE{9770348,
@@ -21,9 +21,10 @@ If this repository is helpful for your research, we'd really appreciate it if yo
 2. 50GB free disk space.
 
 ## Software Requirements
-1. Install [Python](https://www.python.org/downloads/) >= 3.6 (Project works with Python 3.6~3.9)
-2. Install [Cuda](https://developer.nvidia.com/cuda-toolkit) >= 10.1 and [cuDNN](https://developer.nvidia.com/cudnn) (Project works with cudatookit 10.1, 10.2, and 11.1)
-3. Install [PyTorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
+1. [python](https://www.python.org/downloads/) >= 3.6 (Project works with Python 3.6~3.9)
+2. [cuda_toolkit](https://developer.nvidia.com/cuda-toolkit) >= 10.1 (Project works with cudatookit 10.1, 10.2, and 11.1)
+3. [pytorch](http://pytorch.org/) >= 1.7.0 with CUDA (Project works with PyTorch 1.7.0~1.9.1)
+4. [pytorch-nlp](https://pypi.org/project/pytorch-nlp/)
 
 ## Dataset
 Please download the processed VQA-v2 and VG datasets in [OneDrive](https://zjueducn-my.sharepoint.com/:f:/g/personal/3170105600_zju_edu_cn/EqXAXyjnYE1Dn4hMOoRnO6IBV78-cS2HSJsW2vZzpmKkaQ?e=cHf8H9) or [BaiduYun](https://pan.baidu.com/s/19PdZwXWx2vhByfKxZt9oCw?pwd=rwsa) and place them in the root folder as follows:
@@ -39,7 +40,7 @@ Please download the processed VQA-v2 and VG datasets in [OneDrive](https://zjued
 	|  |-- VG_annotations.json
 ```
 
-After that, run the following script to download QA files and unzip the images features.
+After that, run the following script to download QA files and unzip the image features.
 
 ```bash
 $ sh setup.sh
@@ -72,7 +73,7 @@ Finally, the datasets folders shall have the following structure:
 ```
 
 ## Training and Evaluate on the *Val* Split
-Run the following command to train the RWSAN on *train* split of VQA-v2 dataset and evaluate on the *val* split.
+Run the following command to train the RWSAN on *train* split of the VQA-v2 dataset and evaluate on the *val* split.
 
 ```bash
 python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4
@@ -83,13 +84,13 @@ python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --A
 2. ```--GPU=str```: Use the specific GPU device.
 3. ```--SPLIT={'train', 'train+val', 'train+val+vg'}```: The training set you want to use.
 4. ```--ACCU=int```: Gradient accumulation when GPU memory is not sufficient. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
-5. ```--NW=int```: Number of processes to read the dataset. The pre-read data is stored in the memory, and larger number result to more memory cost. During our experiment, 4 is optimal for both training speed and memory cost.
+5. ```--NW=int```: Number of processes to read the dataset. The pre-read data is stored in the memory, and a larger number results in more memory cost. During our experiment, 4 is optimal for both training speed and memory cost.
 
-The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/```
+The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performance on *val* split in every epoch are stored in ```./results/log/```.
 
 ### Resume Training
 
-If the training processed is interrupted, run the following command to resume training. 
+If the training process is interrupted, run the following command to resume training. 
 
 ```bash
 python3 run.py --RUN='train' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
@@ -109,7 +110,7 @@ python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --AC
 
 ### Evaluation
 
-If the log file is lost and you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
+If the log file is lost and you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of the VQA-v2 dataset, run the following command.
 
 ```bash
 python3 run.py ---RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
@@ -118,7 +119,7 @@ python3 run.py ---RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --N
 #### Command
 
 1. ```--VERSION=str --CKPT_V=str```: The name of the model which is going to evaluate.
-2. ```--CKPT_E=int```: The number of epoch you want to evaluate.
+2. ```--CKPT_E=int```: The specific number of epoch you want to evaluate.
 
 For example, if you want to evaluate the performance ```RWSAN_val``` for epoch 16, please run the following command.
 
@@ -129,7 +130,7 @@ python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --AC
 
 ## Training and Evaluate on the *Test* Split
 
-Run the following command to train the RWSAN on *train*, *val* and *vg* splits of VQA-v2 dataset.
+Run the following command to train the RWSAN on *train*, *val* and *vg* splits of the VQA-v2 dataset.
 
 ```bash
 python3 run.py -RUN='train' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train+val+vg' --ACCU=1 --NW=4
@@ -149,7 +150,7 @@ You could upload the result file to [Eval AI](https://eval.ai/web/challenges/cha
 
 ### Modify the Path of Dataset
 
-If you perfer to place the dataset in another path, you could modify the path of dataset. The relating configurations is stored in the ```./cfgs/path_cfgs.py/```.
+If you prefer to place the dataset in another path, you could modify the path of the dataset. The relating configuration file is ```./cfgs/path_cfgs.py/```.
 
 ### Modify the Hyper-Parameter
 
@@ -161,12 +162,12 @@ If you want to build your own model, please define the model under ```./model/``
 
 #### Note
 1. The input of the network contains two parts, including ```img_feat_iter``` in ```[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE]``` and ```ques_ix_iter``` in ```[BATCH_SIZE, MAX_TOKEN]```. (Default ```BATCH_SIZE=64```, ```IMG_FEAT_PAD_SIZE=100```, ```IMG_FEAT_SIZE=2048```, ```MAX_TOKEN=16```.)
-2. The output of the network is ```ans_iter``` in ```[BATCH_SIZE, answer_size]```. The default ```answer_size=3129```. (The program will calculate the answer_size automatically based on the provided ```./data/answer_dict.json```.)
+2. The network output is ```ans_iter``` in ```[BATCH_SIZE, answer_size]```. The default ```answer_size=3129```. (The program will calculate the answer_size automatically based on the provided ```./data/answer_dict.json```.)
 
-### Speed-Up the Training Process
+### Speed Up the Training Process
 
-1. We already use the [mix-precision training](https://pytorch.org/docs/stable/notes/amp_examples.html) in the project to speed-up the training process and save GPU memory. This strategy does not hurt the performace of RWSAN after testing.
-2. This project support multi-GPU training. However, plase don't use multi-GPU as it does not speed-up the training process.
+1. We already use the [mix-precision training](https://pytorch.org/docs/stable/notes/amp_examples.html) in the project to speed up the training process and save GPU memory. This strategy does not hurt the performance of RWSAN after testing.
+2. This project supports multi-GPU training. However, please do not use multi-GPU as it does not speed up the training process.
 
 
 ## Acknowledgement
