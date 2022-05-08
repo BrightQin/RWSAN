@@ -17,8 +17,8 @@ If this repository is helpful to your research, we'd really appreciate it if you
   ```
 
 ## Hardware Requirements
-1. 1 Nvidia GPU (recommand >=6GB memory).
-2. 50GB free disk space.
+1. 1 Nvidia GPU (recommend >=6GB memory).
+2. 50GB free disk space (recommend SSD).
 
 ## Software Requirements
 1. [python](https://www.python.org/downloads/) >= 3.6 (Project works with Python 3.6~3.9)
@@ -168,6 +168,7 @@ If you want to build your own model, please define the model under ```./model/``
 
 1. We already use the [mix-precision training](https://pytorch.org/docs/stable/notes/amp_examples.html) in the project to speed up the training process and save GPU memory. This strategy does not hurt the performance of RWSAN after testing.
 2. This project supports multi-GPU training. However, please do not use multi-GPU as it does not speed up the training process.
+3. A high-end CPU with fast single-core speed is recommended.
 
 
 ## Acknowledgement
