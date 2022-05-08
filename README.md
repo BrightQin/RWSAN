@@ -83,7 +83,7 @@ python3 run.py --RUN='train' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --A
 2. ```--GPU=str```: Use the specific GPU device.
 3. ```--SPLIT={'train', 'train+val', 'train+val+vg'}```: The training set you want to use.
 4. ```--ACCU=int```: Gradient accumulation when GPU memory is not sufficient. ```1``` for not using gradient accumulation. Note that `BATCH_SIZE` must be divided by ```ACCU```. (The default `BATCH_SIZE` is 64, so the ```--ACCU``` can be 1, 2, 4, 8 ...).
-5. ```--NW=int```: Number of processes to read the dataset. The pre-read data is stored in the memory, and largeer number result to more memory cost. During our experiment, 4 is optimal for both training speed and memory cost.
+5. ```--NW=int```: Number of processes to read the dataset. The pre-read data is stored in the memory, and larger number result to more memory cost. During our experiment, 4 is optimal for both training speed and memory cost.
 
 The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for average training loss and performace on *val* split in every epoch are stored in ```./results/log/```
 
@@ -92,7 +92,7 @@ The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for a
 If the training processed is interrupted, run the following command to resume training. 
 
 ```bash
-python3 run.py --RUN='train' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=10
+python3 run.py --RUN='train' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
 ```
 
 #### Command
@@ -109,7 +109,7 @@ python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --AC
 
 ### Evaluation
 
-If the log file is lost and you want to evaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
+If the log file is lost and you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
 
 ```bash
 python3 run.py ---RUN='val' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=int
@@ -143,7 +143,7 @@ python3 run.py --RUN='test' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --A
 
 Predictions are stored in ```./results/result_test/```
 
-You could evaluate the model on *test-dev* and *test-std* splits of VQA-v2 dataset online. Upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to see the scores on *test-dev* and *test-std* splits.
+You could upload the result file to [Eval AI](https://eval.ai/web/challenges/challenge-page/830/overview) to evaluate the model on *test-dev* and *test-std* splits.
 
 ## Modifications
 
@@ -155,13 +155,18 @@ If you perfer to place the dataset in another path, you could modify the path of
 
 All training hyper-parameter is stored in the ```./cfgs/base_cfgs.py/```.
 
-### Build your Own Model
+### Build Your Own Model
 
 If you want to build your own model, please define the model under ```./model/```. Then import your model to ```./train/execution.py``` and define it as name ```net```. Then you could run your own model.
 
 #### Note
 1. The input of the network contains two parts, including ```img_feat_iter``` in ```[BATCH_SIZE, IMG_FEAT_PAD_SIZE, IMG_FEAT_SIZE]``` and ```ques_ix_iter``` in ```[BATCH_SIZE, MAX_TOKEN]```. (Default ```BATCH_SIZE=64```, ```IMG_FEAT_PAD_SIZE=100```, ```IMG_FEAT_SIZE=2048```, ```MAX_TOKEN=16```.)
-2. The output of the network is ```ans_iter``` in ```[BATCH_SIZE, answer_size]```. The default ```answer_size=3129```. (The program will calculate the answer_size automatically based on th provided ```./data/answer_dict.json```.)
+2. The output of the network is ```ans_iter``` in ```[BATCH_SIZE, answer_size]```. The default ```answer_size=3129```. (The program will calculate the answer_size automatically based on the provided ```./data/answer_dict.json```.)
+
+### Speed-Up the Training Process
+
+1. We already use the [mix-precision training](https://pytorch.org/docs/stable/notes/amp_examples.html) in the project to speed-up the training process and save GPU memory. This strategy does not hurt the performace of RWSAN after testing.
+2. This project support multi-GPU training. However, plase don't use multi-GPU as it does not speed-up the training process.
 
 
 ## Acknowledgement
