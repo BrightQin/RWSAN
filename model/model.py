@@ -2,6 +2,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch
 from torch.cuda.amp import autocast as autocast
+import math
 
 class FC(nn.Module):
     def __init__(self, in_size, out_size, dropout_r=0., use_relu=True):
@@ -262,13 +263,13 @@ class AttFlat(nn.Module):
         self.mlp = MLP(
             in_size=__C.HIDDEN_SIZE,
             mid_size=__C.FLAT_MLP_SIZE,
-            out_size=__C.FLAT_GLIMPSES,
+            out_size=1,
             dropout_r=__C.DROPOUT_R,
             use_relu=True
         )
 
         self.linear_merge = nn.Linear(
-            __C.HIDDEN_SIZE * __C.FLAT_GLIMPSES,
+            __C.HIDDEN_SIZE,
             __C.FLAT_OUT_SIZE
         )
 
@@ -282,7 +283,7 @@ class AttFlat(nn.Module):
 
         att_list = []
         att_list.append(
-            torch.sum(att[:, :, i: i + 1] * x, dim=1)
+            torch.sum(att[:, :, :] * x, dim=1)
         )
 
         x_atted = torch.cat(att_list, dim=1)
