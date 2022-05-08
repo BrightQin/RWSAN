@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../')
-from core.data.ans_punct import prep_ans
+from data.ans_punct import prep_ans
 import json
 
 DATASET_PATH = '../datasets/vqa/'
@@ -41,4 +41,4 @@ def ans_stat(stat_ans_list):
     return ans_to_ix, ix_to_ans
 
 ans_to_ix, ix_to_ans = ans_stat(stat_ans_list)
-json.dump([ans_to_ix, ix_to_ans], open('../core/data/answer_dict.json', 'w'))
+json.dump([ans_to_ix, ix_to_ans], open('../data/answer_dict.json', 'w'))
