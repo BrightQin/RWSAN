@@ -91,6 +91,22 @@ The checkpoints are stored in ```./ckpts/ckpt_RWSAN/```, and the log files for a
 
 If the training processed is interrupted, run the following command to resume training. 
 
+```bash
+python3 run.py --RUN='train' --VERSION=str --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V=str --CKPT_E=10
+```
+
+#### Command
+
+1. ```--VERSION=str --CKPT_V=str```: The name of the model which is going to resume training.
+2. ```--CKPT_E=int```: The number of epoch you want to resume.
+
+
+For example, if you want to resume training the model ```RWSAN_val``` from epoch 8, please run the following command.
+
+```bash
+python3 run.py ---RUN='val' --VERSION='RWSAN_val' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_val' --CKPT_E=8
+```
+
 #### Reevaluation (Optional)
 
 If you want to reevaluate the performance of RWSAN in a specific epoch on *val* split of VQA-v2 dataset, run the following command.
@@ -119,7 +135,7 @@ python3 run.py -RUN='train' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train+val+
 After that, run the following code to generate the predictions on the *test* split.
 
 ```bash
-$ python3 run.py --RUN='test' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_test' --CKPT_E=16
+python3 run.py --RUN='test' --VERSION='RWSAN_test' --GPU='0' --SPLIT='train' --ACCU=1 --NW=4 --RESUME=True --CKPT_V='RWSAN_test' --CKPT_E=16
 ```
 
 Predictions are stored in ```results/result_test/```
