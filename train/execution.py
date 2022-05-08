@@ -35,7 +35,7 @@ class Execution:
         ans_size = dataset.ans_size
         pretrained_emb = dataset.pretrained_emb
 
-        # Define the MCAN model
+        # Define the RWSAN model
         net = RWSAN(
             self.__C,
             pretrained_emb,
