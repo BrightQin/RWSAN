@@ -1,9 +1,10 @@
 import numpy as np
-import glob, json, torch, time
+import glob
 import torch.utils.data as Data
 import random, re, json
 import torch
 from torchnlp.word_to_vector import GloVe
+from data.ans_punct import prep_ans
 
 
 def shuffle_list(ans_list):
@@ -205,7 +206,7 @@ class DataSet(Data.Dataset):
         print('== Question token vocab size:', self.token_size)
 
         # Answers statistic
-        self.ans_to_ix, self.ix_to_ans = ans_stat('core/data/answer_dict.json')
+        self.ans_to_ix, self.ix_to_ans = ans_stat('data/answer_dict.json')
         self.ans_size = self.ans_to_ix.__len__()
         print('== Answer vocab size (occurr more than {} times):'.format(8), self.ans_size)
         print('Finished!')
