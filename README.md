@@ -1,4 +1,4 @@
-# RWSAN
+# RWSAN for VQA
 This repo is the official implementation of "**Deep Residual Weight-Sharing Attention Network with Low-Rank Attention for Visual Question Answering**" published in the **IEEE Transactions on Multimedia (TMM), 2022**. [**(Paper)**](https://ieeexplore.ieee.org/document/9770348) [**(Code)**](https://github.com/BrightQin/RWSAN)
 
 ## Citation
